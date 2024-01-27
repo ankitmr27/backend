@@ -107,11 +107,12 @@ module.exports.baseManager = class baseManager {
   //find paginated records filtered by some criteria
   async findPaginatedRecords(criteria, skipCount, limitCount) {
     try {
+      console.log(criteria, skipCount, limitCount);
       const records = this.model
         .find(criteria)
+        .sort({ createdAt: -1 })
         .skip(skipCount)
-        .limit(limitCount)
-        .sort({ createdAt: -1 });
+        .limit(limitCount);
       return records;
     } catch (error) {
       throw new Error(`Error retrieving record: ${error.message}`);
