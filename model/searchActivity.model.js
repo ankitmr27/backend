@@ -8,6 +8,8 @@ const searchActivitySchema = mongoose.Schema({
   },
   searchResult: {
     publish_date: String,
+    pros: String,
+    cons: String,
     summary_text: String,
     review_text: [{ review: String, sentiment: String }],
   },
